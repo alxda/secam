@@ -6,7 +6,9 @@
 Installation
 
 	curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
-	or
+
+Alternative command:
+
 	curl -sSL https://get.docker.com | sh
 
 References:
