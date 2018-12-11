@@ -3,16 +3,25 @@
 ## Camera
 
 ## Docker on Raspberry Pi
-
-	https://medium.freecodecamp.org/the-easy-way-to-set-up-docker-on-a-raspberry-pi-7d24ced073ef
+Installation
 	curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 	or
 	curl -sSL https://get.docker.com | sh
 
-## Tensorflow Image
+References:
+https://medium.freecodecamp.org/the-easy-way-to-set-up-docker-on-a-raspberry-pi-7d24ced073ef
 
-See rpi-tensorflow
+## Tensorflow Image
+Build image
+	docker build -t rpi-tensorflow .
+Run image
+	docker run --name tfimage -p 8888:8888 -d rpi-tensorflow
+	
+	# Send video stream to image: docker run --device=/dev/video0
 
 ## Tensorflow Model
+
+https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md
+https://github.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi
 
 ## Node-RED
