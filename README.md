@@ -23,7 +23,7 @@ Build image
 
 Run image
 
-	docker run --name tfimage -p 8888:8888 -d rpi-tensorflow
+	docker run --name tfinstance -p 8888:8888 -d rpi-tensorflow
 	
 	# Send video stream to image: docker run --device=/dev/video0
 
