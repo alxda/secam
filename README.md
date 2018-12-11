@@ -12,6 +12,7 @@ Alternative command:
 	curl -sSL https://get.docker.com | sh
 
 References:
+
 https://medium.freecodecamp.org/the-easy-way-to-set-up-docker-on-a-raspberry-pi-7d24ced073ef
 
 ## Tensorflow Image
@@ -28,6 +29,7 @@ Run image
 	# Send video stream to image: docker run --device=/dev/video0
 
 ## Tensorflow Model
+References:
 
 https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md
 https://github.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi
