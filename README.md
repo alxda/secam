@@ -15,6 +15,8 @@ References:
 https://medium.freecodecamp.org/the-easy-way-to-set-up-docker-on-a-raspberry-pi-7d24ced073ef
 
 ## Tensorflow Image
+Publish images to Docker
+
 Build image
 
 	docker build -t rpi-tensorflow .
