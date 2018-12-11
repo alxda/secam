@@ -15,7 +15,8 @@ References:
 
 https://medium.freecodecamp.org/the-easy-way-to-set-up-docker-on-a-raspberry-pi-7d24ced073ef
 
-## Tensorflow Image
+## Tensorflow
+### Image
 Publish images to Docker
 
 Build image
@@ -28,7 +29,7 @@ Run image
 	
 	# Send video stream to image: docker run --device=/dev/video0
 
-## Tensorflow Model
+### Model
 References:
 
 https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md
