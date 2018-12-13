@@ -1,6 +1,6 @@
 kind: pipeline
 name: build:tensorflow
-platform: linux/arm
+
 
 clone:
   depth: 1
@@ -11,7 +11,7 @@ steps:
   commands:
     - git submodule update --init
 - name: build:tensorflow
-  image: plugins/docker
+  image: plugins/docker:linux-arm
   group: build
   settings:
     repo: alxda/secam
@@ -32,7 +32,7 @@ steps:
   commands:
     - git submodule update --init
 - name: build:node-red
-  image: plugins/docker
+  image: plugins/docker:linux-arm
   group: build
   settings:
     repo: alxda/secam
