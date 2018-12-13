@@ -30,7 +30,7 @@ steps:
   image: docker:git
   commands:
     - git submodule update --init
-- name: build:docker
+- name: build:node-red
   image: plugins/docker
   group: build
   settings:

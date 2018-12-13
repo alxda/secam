@@ -28,6 +28,7 @@ RUN wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3
 RUN unzip protobuf.zip
 RUN ./bin/protoc object_detection/protos/*.proto --python_out=.
 
+
 RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 
 # TensorBoard
