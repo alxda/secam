@@ -2,4 +2,4 @@ pipeline:
   build:
     image: docker
     commands:
-      - docker build --force-rm --no-cache -t pi-tensorflow_image ./pi-tensorflow
+      - docker build --force-rm --no-cache -t pi-tensorflow_image ./rpi-tensorflow
