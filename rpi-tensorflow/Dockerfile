@@ -3,10 +3,10 @@
 FROM resin/rpi-raspbian
 
 # install tensorflow
-RUN sudo apt update && \
-	sudo apt install python3-dev python3-pip && \
-	sudo apt install libatlas-base-dev && \ # required for numpy
-	sudo pip3 install -U virtualenv # system-wide install
+RUN sudo apt update
+RUN sudo apt install python3-dev python3-pip
+RUN	sudo apt install libatlas-base-dev # required for numpy
+RUN	sudo pip3 install -U virtualenv # system-wide install
 
 RUN	pip install --upgrade tensorflow
 
