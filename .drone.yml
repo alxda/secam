@@ -1,5 +1,4 @@
 pipeline:
-  build-image:
-    image: docker
-    commands:
-      - docker build -t hello-world .
+  build:
+    image: alxda/secam
+    volumes: [ '/var/run/docker.sock:/var/run/docker.sock' ]
