@@ -1,5 +1,6 @@
 kind: pipeline
 name: build:tensorflow
+platform: linux/arm
 
 clone:
   depth: 1
