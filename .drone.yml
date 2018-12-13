@@ -1,5 +1,5 @@
 kind: pipeline
-name: build:debian
+name: build:tensorflow
 
 clone:
   depth: 1
@@ -20,7 +20,7 @@ steps:
 
 ---
 kind: pipeline
-name: build:docker
+name: build:node-red
 
 clone:
   depth: 1
@@ -36,3 +36,4 @@ steps:
   settings:
     repo: alxda/secam
     dry_run: true
+    dockerfile: ./rpi-node-red/Dockerfile
