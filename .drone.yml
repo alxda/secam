@@ -1,3 +1,8 @@
 pipeline:
-  build:
-    image: alxda/secam
+  publish_linux_arm64:
+    image: alxda/secam/pi-tensorflow
+    pull: true
+    group: docker
+    auto_tag: true
+    auto_tag_suffix: linux-arm64
+    dockerfile: Dockerfile
