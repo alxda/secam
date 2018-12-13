@@ -3,19 +3,19 @@
 FROM resin/rpi-raspbian
 
 # install tensorflow
-RUN sudo apt update &&
-	sudo apt install python3-dev python3-pip &&
-	sudo apt install libatlas-base-dev && # required for numpy
+RUN sudo apt update && \
+	sudo apt install python3-dev python3-pip && \
+	sudo apt install libatlas-base-dev && \ # required for numpy
 	sudo pip3 install -U virtualenv # system-wide install
 
 RUN	pip install --upgrade tensorflow
 
 # install tensorflow object detection api
-RUN pip install --user Cython &&
-	pip install --user contextlib2 &&
-	pip install --user pillow &&
-	pip install --user lxml &&
-	pip install --user jupyter &&
+RUN pip install --user Cython && \
+	pip install --user contextlib2 && \
+	pip install --user pillow && \
+	pip install --user lxml && \
+	pip install --user jupyter && \
 	pip install --user matplotlib
 
 RUN mkdir -p /tensorflow/models
