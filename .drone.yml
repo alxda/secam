@@ -9,7 +9,7 @@ steps:
   image: docker:git
   commands:
     - git submodule update --init
-- name: build:debian
+- name: build:tensorflow
   image: plugins/docker
   group: build
   settings:
