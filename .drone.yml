@@ -1,7 +1,38 @@
-pipeline:
-  build:
-    image: docker
-    commands:
-      - docker build --force-rm --no-cache -t pi-tensorflow_image ./rpi-tensorflow
-    volumes:
-     - /var/run/docker.sock:/var/run/docker.sock
+kind: pipeline
+name: build:debian
+
+clone:
+  depth: 1
+
+steps:
+- name: submodules
+  image: docker:git
+  commands:
+    - git submodule update --init
+- name: build:debian
+  image: plugins/docker
+  group: build
+  settings:
+    repo: alxda/secam
+    dry_run: true
+    dockerfile: ./rpi-tensorflow/Dockerfile
+
+
+---
+kind: pipeline
+name: build:docker
+
+clone:
+  depth: 1
+
+steps:
+- name: submodules
+  image: docker:git
+  commands:
+    - git submodule update --init
+- name: build:docker
+  image: plugins/docker
+  group: build
+  settings:
+    repo: alxda/secam
+    dry_run: true
