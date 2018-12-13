@@ -1,0 +1,5 @@
+pipeline:
+  build-image:
+    image: docker
+    commands:
+      - docker build -t hello-world .
