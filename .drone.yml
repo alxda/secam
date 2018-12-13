@@ -1,9 +1,5 @@
 pipeline:
-  publish_linux_arm64:
-    image: alxda/secam/pi-tensorflow
-    pull: true
-    secrets: [ DOCKER_USERNAME, DOCKER_PASSWORD ]
-    group: docker
-    auto_tag: true
-    auto_tag_suffix: linux-arm64
-    dockerfile: Dockerfile
+  build:
+    image: docker
+    commands:
+      - docker build --force-rm --no-cache -t pi-tensorflow_image ./pi-tensorflow
