@@ -8,20 +8,16 @@ RUN sudo apt install python3-dev python3-pip
 RUN	sudo apt install libatlas-base-dev # required for numpy
 RUN	sudo pip3 install -U virtualenv # system-wide install
 
-RUN virtualenv --system-site-packages -p python3 ./venv
-RUN source ./venv/bin/activate  # sh, bash, ksh, or zsh
-RUN pip install --upgrade pip
-
-RUN	pip install --upgrade tensorflow
-# RUN pip3 install --user --upgrade tensorflow
+# RUN	pip install --upgrade tensorflow
+RUN pip3 install --user --upgrade tensorflow
 
 # install tensorflow object detection api
-RUN pip install --user Cython && \
-	pip install --user contextlib2 && \
-	pip install --user pillow && \
-	pip install --user lxml && \
-	pip install --user jupyter && \
-	pip install --user matplotlib
+RUN pip3 install --user Cython && \
+	pip3 install --user contextlib2 && \
+	pip3 install --user pillow && \
+	pip3 install --user lxml && \
+	pip3 install --user jupyter && \
+	pip3 install --user matplotlib
 
 RUN mkdir -p /tensorflow/models
 RUN git clone https://github.com/tensorflow/models.git /tensorflow/models
