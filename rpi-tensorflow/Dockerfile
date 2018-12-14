@@ -17,7 +17,7 @@ RUN sudo pip3 install --user --upgrade tensorflow
 # install tensorflow object detection api
 RUN sudo pip3 install --user Cython && \
 	sudo pip3 install --user contextlib2 && \
-	sudo pip3 install --user pillow && \
+	sudo pip3 install --user Pillow && \
 	sudo pip3 install --user lxml && \
 	sudo pip3 install --user jupyter && \
 	sudo pip3 install --user matplotlib
