@@ -15,12 +15,12 @@ RUN sudo pip3 install --upgrade pip
 RUN sudo pip3 install --upgrade tensorflow
 
 # install tensorflow object detection api
-RUN sudo pip3 install --user Cython && \
-	sudo pip3 install --user contextlib2 && \
-	sudo pip3 install --user pillow && \
-	sudo pip3 install --user lxml && \
-	sudo pip3 install --user jupyter && \
-	sudo pip3 install --user matplotlib
+RUN sudo pip3 install Cython && \
+	sudo pip3 install contextlib2 && \
+	sudo pip3 install pillow && \
+	sudo pip3 install lxml && \
+	sudo pip3 install jupyter && \
+	sudo pip3 install matplotlib
 
 RUN mkdir -p /tensorflow/models
 RUN git clone https://github.com/tensorflow/models.git /tensorflow/models
