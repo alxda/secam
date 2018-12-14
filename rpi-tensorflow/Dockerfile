@@ -1,10 +1,10 @@
 # tensorflow on raspbian
 
-FROM resin/rpi-raspbian
+FROM resin/rpi-raspbian:stretch
 
 # install tensorflow
 RUN sudo apt update
-RUN sudo apt install python3-dev python3-pip
+RUN sudo apt install python3-dev python3-pip python3-setuptools
 RUN	sudo apt install libatlas-base-dev # required for numpy
 RUN	sudo pip3 install -U virtualenv # system-wide install
 
