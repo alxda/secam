@@ -8,7 +8,12 @@ RUN sudo apt install python3-dev python3-pip
 RUN	sudo apt install libatlas-base-dev # required for numpy
 RUN	sudo pip3 install -U virtualenv # system-wide install
 
+RUN virtualenv --system-site-packages -p python3 ./venv
+RUN source ./venv/bin/activate  # sh, bash, ksh, or zsh
+RUN pip install --upgrade pip
+
 RUN	pip install --upgrade tensorflow
+# RUN pip3 install --user --upgrade tensorflow
 
 # install tensorflow object detection api
 RUN pip install --user Cython && \
