@@ -12,9 +12,9 @@ RUN	sudo pip3 install -U virtualenv # system-wide install
 
 RUN mkdir ~/secamdir && \
     cd ~/secamdir && \
-    virtualenv secamdir
+    virtualenv secamenv
 
-RUN source ./secamdir/bin/activate
+RUN source secamenv/bin/activate
 
 # RUN	pip install --upgrade tensorflow
 # RUN pip3 install --user --upgrade tensorflow  # install in $HOME
