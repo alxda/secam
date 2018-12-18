@@ -16,7 +16,9 @@ RUN mkdir ~/secamdir && \
     virtualenv --system-site-packages -p python3 ./secamenv
 
 # Alternative: RUN source secamenv/bin/activate
-RUN . secamenv/bin/activate
+# RUN . secamenv/bin/activate
+RUN #!/bin/bash && \
+    source virtualenv/bin/activate
 
 
 # RUN	pip install --upgrade tensorflow
