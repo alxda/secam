@@ -6,20 +6,26 @@ FROM resin/rpi-raspbian:stretch
 RUN sudo apt update
 RUN sudo apt install python3-dev python3-pip python3-setuptools
 RUN	sudo apt install libatlas-base-dev # required for numpy
-RUN	sudo pip3 install -U virtualenv # system-wide install
 
 RUN sudo pip3 install --upgrade pip
+RUN	sudo pip3 install -U virtualenv # system-wide install
+
+RUN mkdir ~/secamdir && \
+    cd ~/secamdir && \
+    virtualenv secamdir
+
+RUN source myprojectenv/bin/activate
 
 # RUN	pip install --upgrade tensorflow
 # RUN pip3 install --user --upgrade tensorflow  # install in $HOME
-RUN sudo pip3 install --user --upgrade tensorflow
+RUN sudo pip install --user --upgrade tensorflow
 
 # install tensorflow object detection api
 RUN sudo apt-get install protobuf-compiler python-pil python-lxml python-tk
-RUN sudo pip3 install --user Cython
-RUN	sudo pip3 install --user contextlib2
-RUN	sudo pip3 install --user matplotlib
-RUN	sudo pip3 install --user jupyter
+RUN sudo pip install --user Cython
+RUN	sudo pip install --user contextlib2
+RUN	sudo pip install --user matplotlib
+RUN	sudo pip install --user jupyter
 
 RUN mkdir -p /tensorflow/models
 RUN git clone https://github.com/tensorflow/models.git /tensorflow/models
