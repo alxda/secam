@@ -14,7 +14,7 @@ RUN mkdir ~/secamdir && \
     cd ~/secamdir && \
     virtualenv secamdir
 
-RUN source secamdir/bin/activate
+RUN source ./../secamdir/bin/activate
 
 # RUN	pip install --upgrade tensorflow
 # RUN pip3 install --user --upgrade tensorflow  # install in $HOME
