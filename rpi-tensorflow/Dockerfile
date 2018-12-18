@@ -26,11 +26,10 @@ RUN #!/bin/bash && \
 RUN sudo pip install --upgrade tensorflow
 
 # install tensorflow object detection api
-RUN sudo apt-get install protobuf-compiler python-pil python-lxml python-tk g++ pkg-config
+RUN sudo apt-get install protobuf-compiler python-pil python-lxml python-tk python3-matplotlib
 RUN sudo pip install Cython
 RUN	sudo pip install contextlib2
 RUN	sudo pip install jupyter
-RUN	sudo pip install matplotlib
 
 RUN mkdir -p /tensorflow/models
 RUN git clone https://github.com/tensorflow/models.git /tensorflow/models
