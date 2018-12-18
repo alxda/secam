@@ -12,8 +12,8 @@ RUN	sudo pip3 install -U virtualenv # system-wide install
 
 RUN mkdir ~/secamdir && \
     cd ~/secamdir && \
-    virtualenv secamenv && \
-    ls secamenv/bin
+    # virtualenv secamenv && \
+    virtualenv --system-site-packages -p python3 ./secamenv
 
 # Alternative: RUN source secamenv/bin/activate
 RUN . secamenv/bin/activate
