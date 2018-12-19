@@ -41,8 +41,7 @@ WORKDIR /tensorflow/models/research
 
 # RUN wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
 # RUN unzip protobuf.zip
-RUN ./bin/protoc object_detection/protos/*.proto --python_out=.
-
+RUN protoc object_detection/protos/*.proto --python_out=.
 
 RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 
