@@ -65,8 +65,6 @@ steps:
       from_secret: DOCKER_USERNAME
     password:
       from_secret: DOCKER_PASSWORD
-    email:
-      from_secret: DOCKER_EMAIL
     repo: alxda/secam
     registry: https://hub.docker.com/
     tags:
