@@ -20,7 +20,7 @@ steps:
     repo: alxda/secam
     dry_run: true
     dockerfile: ./rpi-tensorflow/Dockerfile
--name: publish-dockerhub
+-name: publish:tensorflow
     image: plugins/docker
     username: ${DOCKER_USERNAME}
     password: ${DOCKER_PASSWORD}
