@@ -28,7 +28,7 @@ RUN sudo pip install --upgrade tensorflow
 # install tensorflow object detection api
 RUN sudo apt-get update
 RUN sudo apt-get upgrade
-RUN sudo apt-get install protobuf-compiler python-pil python-lxml python-tk python3-matplotlib
+RUN sudo apt-get install g++ protobuf-compiler python-pil python-lxml python-tk python3-matplotlib
 RUN sudo pip install Cython
 RUN	sudo pip install contextlib2
 RUN	sudo pip install jupyter
