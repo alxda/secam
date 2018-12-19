@@ -20,14 +20,14 @@ steps:
     repo: alxda/secam
     dry_run: true
     dockerfile: ./rpi-tensorflow/Dockerfile
--name: publish:tensorflow
-    image: plugins/docker
-    secrets: [ DOCKER_USERNAME, DOCKER_PASSWORD, DOCKER_EMAIL ]
-    repo: alxda/secam
-    tags:
-      - latest
-    dockerfile: ./rpi-tensorflow/Dockerfile
-    context: ./rpi-tensorflow/
+- name: publish:tensorflow
+  image: plugins/docker
+  secrets: [ DOCKER_USERNAME, DOCKER_PASSWORD, DOCKER_EMAIL ]
+  repo: alxda/secam
+  tags:
+    - latest
+  dockerfile: ./rpi-tensorflow/Dockerfile
+  context: ./rpi-tensorflow/
 
 ---
 kind: pipeline
