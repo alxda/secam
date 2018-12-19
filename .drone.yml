@@ -60,14 +60,15 @@ steps:
     dockerfile: ./rpi-node-red/Dockerfile
 - name: publish:node-red
   image: plugins/docker:linux-arm
-  secrets: [ DOCKER_USERNAME, DOCKER_PASSWORD, DOCKER_EMAIL ]
-  username:
-    from_secret: DOCKER_USERNAME
-  password:
-    from_secret: DOCKER_PASSWORD
-  email:
-    from_secret: DOCKER_EMAIL
-  repo: alxda/secam
-  tags:
-    - latest
-  dockerfile: ./rpi-node-red/Dockerfile    
+  settings:
+    username:
+      from_secret: DOCKER_USERNAME
+    password:
+      from_secret: DOCKER_PASSWORD
+    email:
+      from_secret: DOCKER_EMAIL
+    repo: alxda/secam
+    registry: https://hub.docker.com/
+    tags:
+        - latest
+    dockerfile: ./rpi-node-red/Dockerfile    
