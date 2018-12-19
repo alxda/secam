@@ -28,7 +28,7 @@ RUN sudo pip install --upgrade tensorflow
 # install tensorflow object detection api
 RUN sudo apt-get update
 RUN sudo apt-get upgrade
-RUN sudo apt-get install g++ protobuf-compiler python-pil python-lxml python-tk python3-matplotlib
+RUN sudo apt-get install git g++ protobuf-compiler python-pil python-lxml python-tk python3-matplotlib
 RUN sudo pip install Cython
 RUN	sudo pip install contextlib2
 RUN	sudo pip install jupyter
@@ -39,8 +39,8 @@ RUN git clone https://github.com/tensorflow/models.git /tensorflow/models
 ## install protobuf
 WORKDIR /tensorflow/models/research
 
-RUN wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
-RUN unzip protobuf.zip
+# RUN wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
+# RUN unzip protobuf.zip
 RUN ./bin/protoc object_detection/protos/*.proto --python_out=.
 
 
