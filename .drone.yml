@@ -22,9 +22,7 @@ steps:
     dockerfile: ./rpi-tensorflow/Dockerfile
 -name: publish:tensorflow
     image: plugins/docker
-    username: ${DOCKER_USERNAME}
-    password: ${DOCKER_PASSWORD}
-    email: ${DOCKER_EMAIL}
+    secrets: [ DOCKER_USERNAME, DOCKER_PASSWORD, DOCKER_EMAIL ]
     repo: alxda/secam
     tags:
       - latest
