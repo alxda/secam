@@ -12,8 +12,8 @@ variables:
   VERSION: alxda/secam:latest
   DOCKER_DRIVER: overlay2
 
-before_script:
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN gitlab.example.com:5555
+# before_script:
+#   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN gitlab.example.com:5555
 
 build:
   stage: build
