@@ -60,6 +60,7 @@ steps:
     dockerfile: ./rpi-node-red/Dockerfile
 - name: publish:node-red
   image: plugins/docker:linux-arm
+  privileged: true
   settings:
     username:
       from_secret: DOCKER_USERNAME
