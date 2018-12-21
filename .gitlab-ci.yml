@@ -19,7 +19,7 @@ build:
   stage: build
   script:
     - docker info
-    - docker build --pull -t $VERSION .
+    - docker build --pull -t $VERSION ./rpi-tensorflow
     - docker push $VERSION
 
 # test:
