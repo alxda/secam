@@ -59,14 +59,9 @@ steps:
     dry_run: true
     dockerfile: ./rpi-node-red/Dockerfile
 - name: publish:node-red
-  image: plugins/docker:linux-arm
-  settings:
-    username:
-      from_secret: DOCKER_USERNAME
-    password:
-      from_secret: DOCKER_PASSWORD
-    repo: alxda/secam
-    registry: https://hub.docker.com/
-    tags:
-        - latest
-    dockerfile: ./rpi-node-red/Dockerfile    
+  image: plugins/docker
+  repo: alxda/secam
+  tags:
+    - latest
+  dockerfile: ./rpi-node-red/Dockerfile    
+  secrets: [ docker_username, docker_password ]
