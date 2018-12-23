@@ -21,19 +21,12 @@ steps:
     dry_run: true
     dockerfile: ./rpi-tensorflow/Dockerfile
 - name: publish:tensorflow
-  image: plugins/docker:linux-arm
-  # secrets: [ DOCKER_USERNAME, DOCKER_PASSWORD, DOCKER_EMAIL ]
-  username:
-    from_secret: DOCKER_USERNAME
-  password:
-    from_secret: DOCKER_PASSWORD
-  email:
-    from_secret: DOCKER_EMAIL
+  image: plugins/docker
   repo: alxda/secam
   tags:
     - latest
-  dockerfile: ./rpi-tensorflow/Dockerfile
-#   context: ./rpi-tensorflow/
+  dockerfile: ./rpi-tensorflow/Dockerfile    
+  secrets: [ docker_username, docker_password ]
 
 ---
 kind: pipeline
