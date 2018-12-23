@@ -56,5 +56,6 @@ steps:
   repo: alxda/secam
   tags:
     - latest
-  dockerfile: ./rpi-node-red/Dockerfile    
+  settings:
+    dockerfile: ./rpi-node-red/Dockerfile    
   secrets: [ docker_username, docker_password ]
