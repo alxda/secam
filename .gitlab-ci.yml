@@ -1,4 +1,5 @@
-image: docker:stable
+# image: docker:stable
+image: ulm0/gitlab-runner 
 
 services:
 - docker:dind
