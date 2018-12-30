@@ -57,7 +57,7 @@ steps:
   secrets: [ docker_username, docker_password ]
   group: docker
   settings:
-    registry: cloud.docker.com
-    repo: cloud.docker.com/repository/docker/alxda/secam
+    registry: cloud.docker.com/repository/docker/
+    repo: alxda/secam
     dockerfile: ./rpi-node-red/Dockerfile
     tags: latest
