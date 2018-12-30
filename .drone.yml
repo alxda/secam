@@ -58,6 +58,6 @@ steps:
   group: docker
   settings:
     registry: cloud.docker.com/repository/docker/
-    repo: alxda/secam
+    repo: cloud.docker.com/repository/docker/alxda/secam
     dockerfile: ./rpi-node-red/Dockerfile
     tags: latest
