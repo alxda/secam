@@ -54,7 +54,9 @@ steps:
 - name: publish:node-red
   image: plugins/docker:linux-arm
   settings:
+    pull: true
+    secrets: [ docker_username, docker_password ]
+    group: docker
     repo: alxda/secam
     dockerfile: ./rpi-node-red/Dockerfile
     tags: latest
-    secrets: [ docker_username, docker_password ]
