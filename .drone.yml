@@ -53,10 +53,10 @@ steps:
     dockerfile: ./rpi-node-red/Dockerfile
 - name: publish:node-red
   image: plugins/docker:linux-arm
+  pull: true
+  group: docker
   settings:
-    pull: true
     secrets: [ docker_username, docker_password ]
-    group: docker
     repo: alxda/secam
     dockerfile: ./rpi-node-red/Dockerfile
     tags: latest
