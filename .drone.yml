@@ -52,7 +52,7 @@ steps:
     dry_run: true
     dockerfile: ./rpi-node-red/Dockerfile
 - name: publish:node-red
-  image: plugins/docker
+  image: plugins/docker:linux-arm
   secrets: [ docker_username, docker_password ]
   group: docker
   settings:
