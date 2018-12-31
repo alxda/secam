@@ -52,12 +52,10 @@ steps:
     dry_run: true
     dockerfile: ./rpi-node-red/Dockerfile
 - name: publish:node-red
-  image: plugins/docker:linux-arm
-  pull: true
+  image: plugins/docker
   secrets: [ docker_username, docker_password ]
   group: docker
   settings:
-    registry: docker.io
-    repo: docker.io/alxda/secam
+    repo: alxda/secam
     dockerfile: ./rpi-node-red/Dockerfile
     tags: latest
