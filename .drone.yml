@@ -57,5 +57,5 @@ steps:
   group: docker
   settings:
     repo: alxda/secam
-#    dockerfile: ./rpi-node-red/Dockerfile
+    dockerfile: ./rpi-node-red/Dockerfile
     tags: latest
