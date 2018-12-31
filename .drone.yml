@@ -57,7 +57,7 @@ steps:
   secrets: [ docker_username, docker_password ]
   group: docker
   settings:
-    registry: hub.docker.com/repository/docker/
+    registry: hub.docker.com
     repo: hub.docker.com/repository/docker/alxda/secam
     dockerfile: ./rpi-node-red/Dockerfile
     tags: latest
