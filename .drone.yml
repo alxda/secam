@@ -61,11 +61,11 @@ steps:
     dockerfile: ./rpi-node-red/Dockerfile
     tags: [ latest ]
 
----
-pipeline:
-  publish:
-    image: plugins/docker
-    secrets: [ docker_username, docker_password ]
-    repo: alxda/secam
-    dockerfile: ./rpi-node-red/Dockerfile
-    tags: [ latest ]
+# ---
+# pipeline:
+#   publish:
+#     image: plugins/docker
+#     secrets: [ docker_username, docker_password ]
+#     repo: alxda/secam
+#     dockerfile: ./rpi-node-red/Dockerfile
+#     tags: [ latest ]
