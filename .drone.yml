@@ -13,13 +13,14 @@ steps:
   image: docker:git
   commands:
     - git submodule update --init
-- name: build:tensorflow
-  image: plugins/docker:linux-arm
-  group: build
-  settings:
-    repo: alxda/secam
-    dry_run: true
-    dockerfile: ./rpi-tensorflow/Dockerfile
+# Redundant to publish step
+# - name: build:tensorflow
+#   image: plugins/docker:linux-arm
+#   group: build
+#   settings:
+#     repo: alxda/secam
+#     dry_run: true
+#     dockerfile: ./rpi-tensorflow/Dockerfile
 - name: publish:tensorflow
   image: plugins/docker:linux-arm
   group: docker
@@ -49,13 +50,14 @@ steps:
   image: docker:git
   commands:
     - git submodule update --init
-- name: build:node-red
-  image: plugins/docker:linux-arm
-  group: build
-  settings:
-    repo: alxda/secam
-    dry_run: true
-    dockerfile: ./rpi-node-red/Dockerfile
+# Redundant to publish step
+# - name: build:node-red
+#   image: plugins/docker:linux-arm
+#   group: build
+#   settings:
+#     repo: alxda/secam
+#     dry_run: true
+#     dockerfile: ./rpi-node-red/Dockerfile
 - name: publish:node-red
   image: plugins/docker:linux-arm
   group: docker
