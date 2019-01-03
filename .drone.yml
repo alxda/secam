@@ -22,11 +22,16 @@ steps:
     dockerfile: ./rpi-tensorflow/Dockerfile
 - name: publish:tensorflow
   image: plugins/docker:linux-arm
-  repo: alxda/secam
-  tags:
-    - latest
-  dockerfile: ./rpi-tensorflow/Dockerfile    
-  secrets: [ docker_username, docker_password ]
+  group: docker
+  settings:
+    repo: alxda/secam
+    dockerfile: ./rpi-tensorflow/Dockerfile
+    debug: true
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    tags: [ tensorflow ]
 
 ---
 kind: pipeline
@@ -62,13 +67,4 @@ steps:
       from_secret: docker_username
     password:
       from_secret: docker_password
-    tags: [ latest ]
-
-# ---
-# pipeline:
-#   publish:
-#     image: plugins/docker
-#     secrets: [ docker_username, docker_password ]
-#     repo: alxda/secam
-#     dockerfile: ./rpi-node-red/Dockerfile
-#     tags: [ latest ]
+    tags: [ node-red ]
