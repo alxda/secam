@@ -55,10 +55,13 @@ steps:
   image: plugins/docker:linux-arm
   group: docker
   settings:
-    debug: true
-    secrets: [ docker_username, docker_password ]
     repo: alxda/secam
     dockerfile: ./rpi-node-red/Dockerfile
+    debug: true
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
     tags: [ latest ]
 
 # ---
