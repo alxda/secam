@@ -37,6 +37,7 @@ Run image
 References:
 
 https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md
+
 https://github.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi
 
 ## Node-RED
