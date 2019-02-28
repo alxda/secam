@@ -4,4 +4,4 @@ for module in modules:
     try:
         __import__(module)
     except ImportError:
-        print '{0} not found'.format('module')
+        print('{0} not found'.format('module'))
