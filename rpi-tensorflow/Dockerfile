@@ -45,8 +45,11 @@ RUN protoc object_detection/protos/*.proto --python_out=.
 
 RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 
+# Copy python script to target image
 RUN mkdir /secam
 COPY rpi-tensorflow/objectDetection.py /secam/
+COPY rpi-tensorflow/checkDependencies.py /secam/
+CMD [ "python", "/secam/checkDependencies.py" ]
 
 # TensorBoard
 EXPOSE 6006
