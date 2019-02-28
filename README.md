@@ -41,3 +41,13 @@ https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc
 https://github.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi
 
 ## Node-RED
+
+## Continuous Deployment
+
+Start current version of images as containers on the raspberry
+
+Use watchtower to update and restart the containers each time a new version of the images are published to docker hub.
+
+References:
+
+https://github.com/v2tec/watchtower

@@ -45,6 +45,9 @@ RUN protoc object_detection/protos/*.proto --python_out=.
 
 RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 
+RUN mkdir /app
+COPY objectDetection.py /secam
+
 # TensorBoard
 EXPOSE 6006
 # IPython
