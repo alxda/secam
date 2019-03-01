@@ -2,7 +2,7 @@
 
 FROM resin/rpi-raspbian:stretch
 
-# install tensorflow
+# Install tensorflow
 RUN sudo apt update
 RUN sudo apt install python3-dev python3-pip python3-setuptools
 RUN	sudo apt install libatlas-base-dev # required for numpy
@@ -21,7 +21,6 @@ RUN #!/bin/bash && \
     source virtualenv/bin/activate
 
 
-# RUN	pip install --upgrade tensorflow
 # RUN pip3 install --user --upgrade tensorflow  # install in $HOME
 RUN sudo pip install --upgrade tensorflow
 
@@ -36,7 +35,7 @@ RUN	sudo pip install jupyter
 RUN mkdir -p /tensorflow/models
 RUN git clone https://github.com/tensorflow/models.git /tensorflow/models
 
-## install protobuf
+# Install protobuf
 WORKDIR /tensorflow/models/research
 
 # RUN wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
@@ -45,10 +44,14 @@ RUN protoc object_detection/protos/*.proto --python_out=.
 
 RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 
+# Install secam python script
 # Copy python script to target image
 RUN mkdir /secam
 COPY rpi-tensorflow/objectDetection.py /secam/
 COPY rpi-tensorflow/checkDependencies.py /secam/
+# Install script specific python packages
+# RUN sudo pip install six.moves.urllib numpy utils matplotlib cv2 
+RUN sudo pip list
 RUN python -u /secam/checkDependencies.py
 
 # TensorBoard
