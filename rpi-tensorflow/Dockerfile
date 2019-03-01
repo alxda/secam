@@ -49,7 +49,7 @@ RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 RUN mkdir /secam
 COPY rpi-tensorflow/*.py /secam/
 # Install script specific python modules
-RUN sudo pip install opencv-python
+RUN sudo apt-get install python-opencv
 RUN sudo pip list
 RUN python -u /secam/checkDependencies.py
 RUN python -u /secam/objectDetection.py
