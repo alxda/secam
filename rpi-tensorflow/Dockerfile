@@ -49,7 +49,8 @@ RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 RUN mkdir /secam
 COPY rpi-tensorflow/objectDetection.py /secam/
 COPY rpi-tensorflow/checkDependencies.py /secam/
-CMD [ "python", "-u", "/secam/checkDependencies.py" ]
+#CMD [ "python", "-u", "/secam/checkDependencies.py" ]
+CMD python -u /secam/checkDependencies.py
 
 # TensorBoard
 EXPOSE 6006
