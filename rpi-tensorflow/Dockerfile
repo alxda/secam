@@ -47,10 +47,9 @@ RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 # Install secam python script
 # Copy python script to target image
 RUN mkdir /secam
-COPY rpi-tensorflow/objectDetection.py /secam/
-COPY rpi-tensorflow/checkDependencies.py /secam/
-# Install script specific python packages
-RUN sudo pip install cv2
+COPY rpi-tensorflow/*.py /secam/
+# Install script specific python modules
+RUN sudo pip install opencv-python
 RUN sudo pip list
 RUN python -u /secam/checkDependencies.py
 RUN python -u /secam/objectDetection.py
