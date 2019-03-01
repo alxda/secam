@@ -50,9 +50,10 @@ RUN mkdir /secam
 COPY rpi-tensorflow/objectDetection.py /secam/
 COPY rpi-tensorflow/checkDependencies.py /secam/
 # Install script specific python packages
-# RUN sudo pip install six.moves.urllib numpy utils matplotlib cv2 
+RUN sudo pip install cv2
 RUN sudo pip list
 RUN python -u /secam/checkDependencies.py
+RUN python -u /secam/objectDetection.py
 
 # TensorBoard
 EXPOSE 6006
