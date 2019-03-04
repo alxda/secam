@@ -49,10 +49,10 @@ RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 RUN mkdir /secam
 COPY rpi-tensorflow/*.py /secam/
 # Install script specific python modules
-RUN sudo apt-get install python-opencv python-six
+RUN sudo apt-get install python-opencv python-six python-tensorflow
 RUN sudo pip list
-RUN python3 -u /secam/checkDependencies.py
-RUN python3 -u /secam/objectDetection.py
+RUN python -u /secam/checkDependencies.py
+RUN python -u /secam/objectDetection.py
 
 # TensorBoard
 EXPOSE 6006
