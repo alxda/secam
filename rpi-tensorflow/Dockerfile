@@ -51,6 +51,7 @@ COPY rpi-tensorflow/*.py ~/secamdir/scripts/
 # Install script specific python modules
 RUN sudo apt-get install python-opencv python-six
 RUN sudo pip list
+RUN ls ~/secamdir/scripts/
 RUN python -u ~/secamdir/scripts/checkDependencies.py
 RUN python -u ~/secamdir/scripts/objectDetection.py
 
