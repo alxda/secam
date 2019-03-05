@@ -44,16 +44,16 @@ RUN protoc object_detection/protos/*.proto --python_out=.
 
 RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 
+WORKDIR /root/secamdir
 # Install secam python script
 # Copy python script to target image
-RUN mkdir ~/secamdir/scripts
-COPY rpi-tensorflow/*.py ~/secamdir/scripts/
+RUN mkdir ./scripts
+COPY rpi-tensorflow/*.py ./scripts/
 # Install script specific python modules
 RUN sudo apt-get install python-opencv python-six
 RUN sudo pip list
-RUN ls ~/secamdir/scripts/
-RUN python -u ~/secamdir/scripts/checkDependencies.py
-RUN python -u ~/secamdir/scripts/objectDetection.py
+RUN python -u ./checkDependencies.py
+RUN python -u ./objectDetection.py
 
 # TensorBoard
 EXPOSE 6006
