@@ -10,6 +10,10 @@ RUN	sudo apt install libatlas-base-dev # required for numpy
 RUN sudo pip3 install --upgrade pip
 RUN	sudo pip3 install -U virtualenv # system-wide install
 
+RUN python3 --version && \
+    pip3 --version && \
+    virtualenv --version
+
 RUN mkdir ~/secamdir && \
     cd ~/secamdir && \
     virtualenv --system-site-packages -p python3 ./secamenv
@@ -19,7 +23,7 @@ RUN mkdir ~/secamdir && \
 RUN #!/bin/bash && \
     source virtualenv/bin/activate
 
-RUN python --version
+RUN sudo python --version
 
 # RUN pip3 install --user --upgrade tensorflow  # install in $HOME
 RUN sudo pip install --upgrade tensorflow
