@@ -23,8 +23,6 @@ RUN mkdir ~/secamdir && \
 RUN #!/bin/bash && \
     source secamenv/bin/activate
 
-RUN sudo python --version
-
 # RUN pip3 install --user --upgrade tensorflow  # install in $HOME
 RUN sudo pip install --upgrade tensorflow
 
@@ -47,6 +45,17 @@ WORKDIR /tensorflow/models/research
 RUN protoc object_detection/protos/*.proto --python_out=.
 
 RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
+
+WORKDIR /root/secamdir
+# Install secam python script
+# Copy python script to target image
+RUN mkdir ./scripts
+COPY rpi-tensorflow/*.py ./scripts/
+# Install script specific python modules
+RUN sudo apt-get install python-opencv python-six
+RUN sudo pip list
+RUN python3 -u ./scripts/checkDependencies.py
+RUN python3 -u ./scripts/objectDetection.py
 
 # TensorBoard
 EXPOSE 6006
