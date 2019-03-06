@@ -52,8 +52,8 @@ COPY rpi-tensorflow/*.py ./scripts/
 # Install script specific python modules
 RUN sudo apt-get install python-opencv python-six
 RUN sudo pip list
-RUN python -u ./checkDependencies.py
-RUN python -u ./objectDetection.py
+RUN python -u ./scripts/checkDependencies.py
+RUN python -u ./scripts/objectDetection.py
 
 # TensorBoard
 EXPOSE 6006
