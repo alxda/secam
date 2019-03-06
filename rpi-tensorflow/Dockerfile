@@ -20,8 +20,9 @@ RUN mkdir ~/secamdir && \
 
 # Alternative: RUN source secamenv/bin/activate
 # RUN . secamenv/bin/activate
-RUN #!/bin/bash && \
-    source secamenv/bin/activate
+RUN #!/bin/bash source secamenv/bin/activate
+
+RUN python --version
 
 # RUN pip3 install --user --upgrade tensorflow  # install in $HOME
 RUN sudo pip install --upgrade tensorflow
