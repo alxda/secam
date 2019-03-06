@@ -21,7 +21,7 @@ RUN mkdir ~/secamdir && \
 # Alternative: RUN source secamenv/bin/activate
 # RUN . secamenv/bin/activate
 RUN #!/bin/bash && \
-    source virtualenv/bin/activate
+    source secamenv/bin/activate
 
 RUN sudo python --version
 
