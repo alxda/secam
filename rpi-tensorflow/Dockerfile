@@ -20,7 +20,7 @@ RUN mkdir ~/secamdir && \
 
 # Alternative: RUN source secamenv/bin/activate
 # RUN . secamenv/bin/activate
-RUN /bin/bash source secamenv/bin/activate
+RUN /bin/bash -c  "source secamenv/bin/activate"
 
 RUN python --version
 
