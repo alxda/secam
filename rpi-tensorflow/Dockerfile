@@ -14,14 +14,10 @@ RUN python3 --version && \
     pip3 --version && \
     virtualenv --version
 
-RUN mkdir ~/secamdir && \
-    cd ~/secamdir && \
-    virtualenv --system-site-packages -p python3 ./secamenv
-
-# Alternative: RUN source secamenv/bin/activate
-# RUN . secamenv/bin/activate
-RUN pwd
-RUN /bin/bash -c  "source ./secamenv/bin/activate"
+RUN mkdir /secamdir && \
+    cd /secamdir && \
+    virtualenv --system-site-packages -p python3 ./secamenv && \
+    /bin/bash -c  "source ./secamenv/bin/activate"
 
 RUN python --version
 
