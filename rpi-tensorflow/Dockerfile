@@ -44,6 +44,9 @@ RUN protoc object_detection/protos/*.proto --python_out=.
 
 RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 
+#Test
+RUN python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
+
 WORKDIR /secamdir
 # Install secam python script
 # Copy python script to target image
