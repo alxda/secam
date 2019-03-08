@@ -16,7 +16,7 @@ RUN python3 --version && \
 
 RUN mkdir /secamdir && \
     cd /secamdir && \
-    virtualenv --system-site-packages -p python3 ./secamenv && \
+    virtualenv --system-site-packages -p python3.5 ./secamenv && \
     /bin/bash -c  "source ./secamenv/bin/activate"
 
 # RUN pip3 install --user --upgrade tensorflow  # install in $HOME
