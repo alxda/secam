@@ -2,12 +2,28 @@
 
 FROM resin/rpi-raspbian:stretch
 
-# Install tensorflow
-RUN sudo apt update
-RUN sudo apt install python3-dev python3-pip python3-setuptools
-RUN	sudo apt install libatlas-base-dev # required for numpy
+RUN sudo apt-get update && apt-get upgrade && \
+    apt-get install python3 python3-pip
 
-RUN sudo pip3 install --upgrade pip
+RUN pip3 --no-cache-dir install --upgrade pip setuptools
+
+# Some TF tools expect a "python" binary
+RUN ln -s python3 /usr/local/bin/python 
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    git \
+    wget \
+    openjdk-8-jdk \
+    ${PYTHON}-dev \
+    swig
+
+# Install tensorflow
+# RUN sudo apt update
+# RUN sudo apt install python3-dev python3-pip python3-setuptools
+# RUN	sudo apt install libatlas-base-dev # required for numpy
+
 RUN	sudo pip3 install -U virtualenv # system-wide install
 
 RUN python3 --version && \
@@ -23,8 +39,7 @@ RUN mkdir /secamdir && \
 RUN sudo pip install --upgrade tensorflow
 
 # install tensorflow object detection api
-RUN sudo apt-get update
-RUN sudo apt-get upgrade
+
 RUN sudo apt-get install git g++ protobuf-compiler python-pil python-lxml python-tk python3-matplotlib
 RUN sudo pip install Cython
 RUN	sudo pip install contextlib2
