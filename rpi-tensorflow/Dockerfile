@@ -26,10 +26,18 @@ RUN apt-get update && apt-get install -y \
 RUN python3 --version && \
     pip3 --version
 
-RUN pip3 install tensorflow
+RUN mkdir /secamdir && \
+    cd /secamdir && \
+    virtualenv --system-site-packages -p python3 ./secamenv && \
+    /bin/bash -c  "source ./secamenv/bin/activate"
 
-RUN pip3 list
+RUN pip --version
+
+RUN pip install --upgrade tensorflow
+RUN pip list #show packages installed within the virtual environment
+
 RUN python3 -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
+
 
 # install tensorflow object detection api
 
@@ -50,8 +58,6 @@ RUN protoc object_detection/protos/*.proto --python_out=.
 
 RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 
-RUN mkdir /secamdir && \
-    cd /secamdir
 
 WORKDIR /secamdir
 # Install secam python script
