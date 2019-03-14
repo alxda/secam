@@ -9,6 +9,7 @@ RUN pip3 --no-cache-dir install --upgrade pip setuptools
 
 # Some TF tools expect a "python" binary
 RUN ln -s python3 /usr/local/bin/python 
+RUN ln -s python /usr/local/bin/python 
 
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -39,6 +40,7 @@ RUN mkdir /secamdir && \
 RUN pip install --upgrade tensorflow
 
 RUN python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
+RUN python -version
 
 # install tensorflow object detection api
 

@@ -48,6 +48,9 @@ Start current version of images as containers on the raspberry
 
 Use watchtower to update and restart the containers each time a new version of the images are published to docker hub.
 
+## Outlook
+Ocean Protocol, BigchainDB
+
 References:
 
 https://github.com/v2tec/watchtower
