@@ -35,7 +35,7 @@ RUN mkdir /secamdir && \
 
 RUN pip --version
 
-RUN pip install "https://www.piwheels.org/simple/tensorflow/tensorflow-1.13.1-cp35-none-linux_armv7l.whl"
+RUN pip install "https://www.piwheels.org/simple/tensorflow/tensorflow-1.13.1-cp35-none-linux_armv6l.whl"
 
 RUN pip list #show packages installed within the virtual environment
 
