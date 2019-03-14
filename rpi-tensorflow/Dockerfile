@@ -32,14 +32,16 @@ RUN python3 --version && \
 
 RUN mkdir /secamdir && \
     cd /secamdir && \
-    virtualenv --system-site-packages -p python3.5 ./secamenv && \
+    virtualenv --system-site-packages -p python3 ./secamenv && \
     /bin/bash -c  "source ./secamenv/bin/activate"
 
 # RUN pip3 install --user --upgrade tensorflow  # install in $HOME
-RUN pip install --upgrade tensorflow
+RUN pip install --upgrade pip tensorflow
+RUN pip list  # show packages installed within the virtual environment
 
-RUN /usr/local/bin/python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
-RUN /usr/local/bin/python -version
+
+RUN python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
+RUN python -version
 
 # install tensorflow object detection api
 
