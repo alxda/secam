@@ -2,8 +2,8 @@
 
 FROM resin/rpi-raspbian:stretch
 
-RUN apt-get update && apt-get upgrade && \
-    apt-get install python3 python3-dev python3-pip
+RUN apt-get update && apt-get install -y && \
+    python3 python3-dev python3-pip
 
 RUN pip3 --no-cache-dir install --upgrade pip setuptools
 
@@ -22,6 +22,8 @@ RUN apt-get update && apt-get install -y \
 # RUN sudo apt update
 # RUN sudo apt install python3-dev python3-pip python3-setuptools
 # RUN	sudo apt install libatlas-base-dev # required for numpy
+
+RUN sudo pip3 install -U virtualenv # system-wide install
 
 RUN python3 --version && \
     pip3 --version
