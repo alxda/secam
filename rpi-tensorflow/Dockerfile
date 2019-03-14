@@ -3,7 +3,7 @@
 FROM resin/rpi-raspbian:stretch
 
 RUN apt-get update && apt-get upgrade && \
-    apt-get install python3 python3-pip
+    apt-get install python3 python3-dev python3-pip
 
 RUN pip3 --no-cache-dir install --upgrade pip setuptools
 
@@ -16,7 +16,6 @@ RUN apt-get update && apt-get install -y \
     git \
     wget \
     openjdk-8-jdk \
-    python3-dev \
     swig
 
 # Install tensorflow
@@ -24,24 +23,15 @@ RUN apt-get update && apt-get install -y \
 # RUN sudo apt install python3-dev python3-pip python3-setuptools
 # RUN	sudo apt install libatlas-base-dev # required for numpy
 
-RUN	pip3 install -U virtualenv # system-wide install
-
 RUN python3 --version && \
-    pip3 --version && \
-    virtualenv --version
+    pip3 --version
 
 RUN mkdir /secamdir && \
-    cd /secamdir && \
-    virtualenv --system-site-packages -p python3 ./secamenv && \
-    /bin/bash -c  "source ./secamenv/bin/activate"
+    cd /secamdir
 
-# RUN pip3 install --user --upgrade tensorflow  # install in $HOME
-RUN pip install --upgrade pip tensorflow
-RUN pip list  # show packages installed within the virtual environment
+RUN pip3 install --user --upgrade tensorflow  # install in $HOME
 
-
-RUN python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
-RUN python -version
+RUN python3 -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
 
 # install tensorflow object detection api
 
@@ -61,9 +51,6 @@ WORKDIR /tensorflow/models/research
 RUN protoc object_detection/protos/*.proto --python_out=.
 
 RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
-
-#Test
-RUN python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
 
 WORKDIR /secamdir
 # Install secam python script
