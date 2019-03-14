@@ -35,7 +35,7 @@ RUN mkdir /secamdir && \
 
 RUN pip --version
 
-RUN pip install "tensorflow-1.13.1-cp37-none-linux_armv7l.whl"
+RUN pip install "tensorflow-1.13.1-cp35-none-linux_armv6l.whl"
 RUN pip list #show packages installed within the virtual environment
 
 RUN python3 -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
