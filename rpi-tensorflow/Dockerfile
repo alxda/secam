@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y \
 RUN python3 --version && \
     pip3 --version
 
-RUN pip3 install --user --upgrade tensorflow  # install in $HOME
+RUN pip3 install tensorflow
 
 RUN pip3 list
 RUN python3 -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
