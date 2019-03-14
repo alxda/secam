@@ -2,7 +2,7 @@
 
 FROM resin/rpi-raspbian:stretch
 
-RUN sudo apt-get update && apt-get upgrade && \
+RUN apt-get update && apt-get upgrade && \
     apt-get install python3 python3-pip
 
 RUN pip3 --no-cache-dir install --upgrade pip setuptools
@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     git \
     wget \
     openjdk-8-jdk \
-    ${PYTHON}-dev \
+    python3-dev \
     swig
 
 # Install tensorflow
@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y \
 # RUN sudo apt install python3-dev python3-pip python3-setuptools
 # RUN	sudo apt install libatlas-base-dev # required for numpy
 
-RUN	sudo pip3 install -U virtualenv # system-wide install
+RUN	pip3 install -U virtualenv # system-wide install
 
 RUN python3 --version && \
     pip3 --version && \
@@ -36,7 +36,9 @@ RUN mkdir /secamdir && \
     /bin/bash -c  "source ./secamenv/bin/activate"
 
 # RUN pip3 install --user --upgrade tensorflow  # install in $HOME
-RUN sudo pip install --upgrade tensorflow
+RUN pip install --upgrade tensorflow
+
+RUN python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
 
 # install tensorflow object detection api
 
