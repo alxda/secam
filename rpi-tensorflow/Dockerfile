@@ -29,7 +29,7 @@ RUN sudo pip3 install -U virtualenv # system-wide install
 RUN python3 --version && \
     pip3 --version
 
-RUN python3 -c "from pip import pep425tags;print(pep425tags.supported_tags)"
+RUN python3 -c "import wheel.pep425tags as w; print(w.get_supported())"
 
 RUN mkdir /secamdir && \
     cd /secamdir && \
@@ -38,7 +38,7 @@ RUN mkdir /secamdir && \
 
 RUN pip --version
 
-RUN python -c "from pip import pep425tags;print(pep425tags.supported_tags)"
+RUN python -c "import wheel.pep425tags as w; print(w.get_supported())"
 
 RUN pip install "https://www.piwheels.org/simple/tensorflow/tensorflow-1.13.1-cp35-none-linux_armv6l.whl"
 
