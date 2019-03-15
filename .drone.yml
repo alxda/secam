@@ -4,6 +4,7 @@ name: build:tensorflow
 platform:
   os: linux
   arch: arm
+  variant: v7
 
 clone:
   depth: 1
