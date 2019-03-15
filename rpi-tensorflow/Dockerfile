@@ -1,6 +1,7 @@
 # tensorflow on raspbian
 
-FROM resin/rpi-raspbian:stretch
+# FROM resin/rpi-raspbian:stretch
+FROM resin/armv7hf-debian:stretch
 
 RUN cat /etc/*-release
 
