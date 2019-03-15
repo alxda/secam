@@ -7,7 +7,7 @@ FROM resin/armv7hf-debian
 RUN cat /etc/*-release
 
 RUN apt-get update && apt-get install -y \
-    python3 python3-dev python3-pip libatlas-base-dev
+    python3 python3-dev python3-pip python3-setuptools libatlas-base-dev
 
 RUN pip3 --no-cache-dir install --upgrade pip setuptools
 
