@@ -4,7 +4,6 @@ name: build:tensorflow
 platform:
   os: linux
   arch: arm
-  variant: v7
 
 clone:
   depth: 1
@@ -23,7 +22,8 @@ steps:
 #     dry_run: true
 #     dockerfile: ./rpi-tensorflow/Dockerfile
 - name: publish:tensorflow
-  image: plugins/docker:linux-arm
+#  image: plugins/docker:linux-arm
+  image: arm32v7/debian
   group: docker
   settings:
     repo: alxda/secam
