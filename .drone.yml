@@ -3,7 +3,7 @@ name: build:tensorflow
 
 platform:
   os: linux
-  arch: arm64
+  arch: arm
 
 clone:
   depth: 1
