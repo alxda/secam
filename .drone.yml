@@ -22,8 +22,8 @@ steps:
 #     dry_run: true
 #     dockerfile: ./rpi-tensorflow/Dockerfile
 - name: publish:tensorflow
-#  image: plugins/docker:linux-arm
-  image: arm32v7/debian
+  #image: plugins/docker:linux-arm
+  image: alpinelinux/alpine-drone-ci:edge-armv7
   group: docker
   settings:
     repo: alxda/secam
