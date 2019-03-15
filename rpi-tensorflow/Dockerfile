@@ -1,6 +1,6 @@
 # tensorflow on raspbian
 
-FROM resin/rpi-raspbian:stretch
+FROM balenalib/raspberrypi3-debian
 
 RUN cat /etc/*-release
 
