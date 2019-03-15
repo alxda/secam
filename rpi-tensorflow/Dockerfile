@@ -5,7 +5,7 @@ FROM resin/rpi-raspbian:stretch
 RUN cat /etc/*-release
 
 RUN apt-get update && apt-get install -y \
-    python3 python3-dev python3-pip
+    python3 python3-dev python3-pip libatlas-base-dev
 
 RUN pip3 --no-cache-dir install --upgrade pip setuptools
 
@@ -23,7 +23,6 @@ RUN apt-get update && apt-get install -y \
 # Install tensorflow
 # RUN sudo apt update
 # RUN sudo apt install python3-dev python3-pip python3-setuptools
-# RUN	sudo apt install libatlas-base-dev # required for numpy
 
 RUN sudo pip3 install -U virtualenv # system-wide install
 
