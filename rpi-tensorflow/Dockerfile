@@ -38,7 +38,7 @@ RUN mkdir /secamdir && \
 
 RUN pip --version
 
-RUN python -c "import pip._internal; print(pip._internal.pep425tags.get_supported())"
+RUN python3 -c "import pip._internal; print(pip._internal.pep425tags.get_supported())"
 
 RUN pip install "https://www.piwheels.org/simple/tensorflow/tensorflow-1.13.1-cp35-none-linux_armv6l.whl"
 
