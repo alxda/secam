@@ -1,7 +1,4 @@
-image: docker:stable
-
-services:
-- docker
+image: node:latest
 
 stages:
 - build
