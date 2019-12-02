@@ -1,9 +1,12 @@
-image: docker
+image: docker:stable
 
 stages:
 - build
 # - test
 # - release
+
+services:
+  - docker:dind
 
 variables:
   VERSION: alxda/secam/rpi-tensorflow:latest
