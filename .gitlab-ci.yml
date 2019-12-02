@@ -2,7 +2,7 @@ image: docker:stable
 
 services:
   - docker:dind
-  
+
 stages:
 - build
 # - test
@@ -20,6 +20,7 @@ build:
   tags:
     - arm
   script:
+    - whoami
     - docker info
     - docker build --build-arg BASE_IMAGE=arm32v7/debian:stretch-slim --pull -t $VERSION ./rpi-tensorflow
     - docker push $VERSION
