@@ -19,6 +19,14 @@ References:
 
 https://medium.freecodecamp.org/the-easy-way-to-set-up-docker-on-a-raspberry-pi-7d24ced073ef
 
+## GitLab Runner on Raspberry Pi
+
+Share Runners of gitlab.com support only the x86 architecture. Building for arm will therefore fail at some point eventually. Therefore, a runner needs to be installed on the Raspberry Pi and registered to gitlab.com. The standard gitlab/gitlab-runner docker image doesn't work, however, on arm. Use instead the image provided by klud.  
+
+References:
+
+https://hub.docker.com/r/klud/gitlab-runner/
+
 ## Tensorflow
 ### Image
 Publish images to Docker
