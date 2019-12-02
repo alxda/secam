@@ -5,9 +5,6 @@ stages:
 # - test
 # - release
 
-services:
-  - docker:dind
-
 variables:
   VERSION: alxda/secam/rpi-tensorflow:latest
   DOCKER_DRIVER: overlay2
