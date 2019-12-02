@@ -8,7 +8,6 @@ stages:
 variables:
   VERSION: alxda/secam/rpi-tensorflow:latest
   DOCKER_DRIVER: overlay2
-  DOCKER_HOST: tcp://127.0.0.1:2375
 
 # before_script:
 #    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
