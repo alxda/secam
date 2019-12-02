@@ -17,6 +17,8 @@ variables:
 
 build:
   stage: build
+  tags:
+    - arm
   script:
     - docker info
     - docker build --build-arg BASE_IMAGE=arm32v7/debian:stretch-slim --pull -t $VERSION ./rpi-tensorflow
