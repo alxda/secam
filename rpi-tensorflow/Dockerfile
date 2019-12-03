@@ -66,7 +66,7 @@ WORKDIR /secamdir
 # Copy python script to target image
 RUN mkdir ./scripts
 COPY . ./scripts/
-# Install script specific python modules
+# Install script specific python modules (e.g. opencv)
 RUN sudo apt-get install python3-numpy python-six build-essential cmake unzip pkg-config python3-dev && \
     wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.0.0.zip && \
     unzip opencv_contrib.zip && \
