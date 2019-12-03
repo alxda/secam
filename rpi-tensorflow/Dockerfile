@@ -67,12 +67,11 @@ WORKDIR /secamdir
 # Copy python script to target image
 RUN mkdir ./scripts
 COPY . ./scripts/
-RUN ls ./scripts/
 # Install script specific python modules
 RUN sudo apt-get install python-opencv python-six
 RUN sudo pip list
-RUN python -u ./scripts/checkDependencies.py
-RUN python -u ./scripts/objectDetection.py
+RUN python3 -u ./scripts/checkDependencies.py
+RUN python3 -u ./scripts/objectDetection.py
 
 # TensorBoard
 EXPOSE 6006
