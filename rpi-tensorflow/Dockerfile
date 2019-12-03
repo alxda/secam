@@ -1,6 +1,7 @@
 # tensorflow on raspbian
 
-FROM balenalib/raspberrypi3-debian
+# FROM balenalib/raspberrypi3-debian
+FROM arm32v7/debian
 
 RUN cat /etc/*-release
 
@@ -29,7 +30,7 @@ RUN sudo pip3 install -U virtualenv # system-wide install
 RUN python3 --version && \
     pip3 --version
 
-RUN python3 -c "import pip._internal; print(pip._internal.pep425tags.get_supported())"
+# RUN python3 -c "import pip._internal; print(pip._internal.pep425tags.get_supported())"
 
 RUN mkdir /secamdir && \
     cd /secamdir && \
