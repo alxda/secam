@@ -69,7 +69,7 @@ COPY . ./scripts/
 # Install script specific python modules (e.g. opencv)
 RUN sudo apt-get install python3-numpy python-six build-essential cmake unzip pkg-config python3-dev && \
     wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.0.0.zip && \
-    unzip opencv_contrib.zip && \
+    unzip opencv_contrib.zip -d ./opencv_contrib && \
     pip install numpy && \
     cd ./opencv_contrib && \
     mkdir ./build && \
