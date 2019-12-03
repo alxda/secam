@@ -65,7 +65,8 @@ WORKDIR /secamdir
 RUN mkdir ./scripts
 COPY . ./scripts/
 # Install script specific python modules
-RUN sudo apt-get install python3-numpy python-opencv python-six
+RUN sudo apt-get install python3-numpy python-six
+RUN sudo pip install opencv-contrib-python
 RUN sudo pip list
 RUN python3 -u ./scripts/checkDependencies.py
 RUN python3 -u ./scripts/objectDetection.py
