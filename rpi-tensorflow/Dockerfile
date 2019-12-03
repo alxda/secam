@@ -45,13 +45,10 @@ RUN pip list #show packages installed within the virtual environment
 
 RUN python3 -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
 
-
 # install tensorflow object detection api
 
-RUN sudo apt-get install git g++ protobuf-compiler python-pil python-lxml python-tk python3-matplotlib
-RUN sudo pip install Cython
-RUN	sudo pip install contextlib2
-RUN	sudo pip install jupyter
+RUN sudo apt-get install git g++ protobuf-compiler python-pil python-lxml python-tk python3-matplotlib && \
+    sudo pip install Cython contextlib2 jupyter
 
 RUN mkdir -p /tensorflow/models
 RUN git clone https://github.com/tensorflow/models.git /tensorflow/models
@@ -65,12 +62,11 @@ RUN protoc object_detection/protos/*.proto --python_out=.
 
 RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 
-
 WORKDIR /secamdir
 # Install secam python script
 # Copy python script to target image
 RUN mkdir ./scripts
-COPY rpi-tensorflow/*.py ./scripts/
+COPY ./rpi-tensorflow/*.py ./scripts/
 # Install script specific python modules
 RUN sudo apt-get install python-opencv python-six
 RUN sudo pip list
