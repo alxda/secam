@@ -22,9 +22,6 @@ RUN apt-get update && apt-get install -y \
     swig
 
 # Install tensorflow
-# RUN sudo apt update
-# RUN sudo apt install python3-dev python3-pip python3-setuptools
-
 RUN sudo pip3 install -U virtualenv # system-wide install
 
 RUN python3 --version && \
@@ -48,7 +45,7 @@ RUN python3 -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.r
 # install tensorflow object detection api
 
 RUN sudo apt-get install git g++ protobuf-compiler python-pil python-lxml python-tk python3-matplotlib && \
-    sudo pip install Cython contextlib2 jupyter opencv-python
+    sudo pip install Cython contextlib2 jupyter opencv-contrib-python
 
 RUN mkdir -p /tensorflow/models
 RUN git clone https://github.com/tensorflow/models.git /tensorflow/models
