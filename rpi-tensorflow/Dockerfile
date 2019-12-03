@@ -66,8 +66,8 @@ WORKDIR /secamdir
 # Install secam python script
 # Copy python script to target image
 RUN mkdir ./scripts
-COPY rpi-tensorflow/checkDependencies.py ./scripts/checkDependencies.py
-COPY rps-tensorflow/objectDetection.py ./scripts/objectDetection.py
+COPY . ./scripts/
+RUN ls ./scripts/
 # Install script specific python modules
 RUN sudo apt-get install python-opencv python-six
 RUN sudo pip list
