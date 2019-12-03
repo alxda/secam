@@ -44,7 +44,9 @@ RUN python3 -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.r
 
 # install tensorflow object detection api
 
-RUN sudo apt-get install git g++ protobuf-compiler python-pil python-lxml python-tk python3-matplotlib && \
+RUN sudo apt-get update && \
+    sudo apt-get upgrade && \
+    install git g++ protobuf-compiler python-pil python-lxml python-tk python3-matplotlib && \
     sudo pip install Cython contextlib2 jupyter
 
 RUN mkdir -p /tensorflow/models
@@ -65,11 +67,29 @@ WORKDIR /secamdir
 RUN mkdir ./scripts
 COPY . ./scripts/
 # Install script specific python modules
-RUN sudo apt-get install python3-numpy python-six
-RUN sudo pip install opencv-contrib-python
-RUN sudo pip list
-RUN python3 -u ./scripts/checkDependencies.py
-RUN python3 -u ./scripts/objectDetection.py
+RUN sudo apt-get install python3-numpy python-six build-essential cmake unzip pkg-config python3-dev && \
+    wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.0.0.zip && \
+    unzip opencv_contrib.zip && \
+    pip install numpy && \
+    cd~/opencv && \
+    mkdir build && \
+    cd build && \
+    cmake -D CMAKE_BUILD_TYPE=RELEASE \
+        -D CMAKE_INSTALL_PREFIX=/usr/local \
+        -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-4.0.0/modules \
+        -D ENABLE_NEON=ON \
+        -D ENABLE_VFPV3=ON \
+        -D BUILD_TESTS=OFF \
+        -D WITH_TBB=OFF \
+        -D INSTALL_PYTHON_EXAMPLES=OFF \
+        -D BUILD_EXAMPLES=OFF .. && \
+    Make –j4 && \
+    sudo apt-get install libopencv-dev python-opencv && \
+    sudo pip list
+
+WORKDIR /secamdir
+RUN python3 -u ./scripts/checkDependencies.py && \
+    python3 -u ./scripts/objectDetection.py
 
 # TensorBoard
 EXPOSE 6006
