@@ -48,7 +48,7 @@ RUN python3 -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.r
 # install tensorflow object detection api
 
 RUN sudo apt-get install git g++ protobuf-compiler python-pil python-lxml python-tk python3-matplotlib && \
-    sudo pip install Cython contextlib2 jupyter
+    sudo pip install Cython contextlib2 jupyter opencv-python
 
 RUN mkdir -p /tensorflow/models
 RUN git clone https://github.com/tensorflow/models.git /tensorflow/models
