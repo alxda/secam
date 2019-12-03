@@ -71,9 +71,9 @@ RUN sudo apt-get install python3-numpy python-six build-essential cmake unzip pk
     wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.0.0.zip && \
     unzip opencv_contrib.zip && \
     pip install numpy && \
-    cd~/opencv && \
-    mkdir build && \
-    cd build && \
+    cd ./opencv_contrib && \
+    mkdir ./build && \
+    cd ./build && \
     cmake -D CMAKE_BUILD_TYPE=RELEASE \
         -D CMAKE_INSTALL_PREFIX=/usr/local \
         -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-4.0.0/modules \
