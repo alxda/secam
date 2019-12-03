@@ -46,7 +46,7 @@ RUN python3 -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.r
 
 RUN sudo apt-get update && \
     sudo apt-get upgrade && \
-    install git g++ protobuf-compiler python-pil python-lxml python-tk python3-matplotlib && \
+    sudo apt-get install git g++ protobuf-compiler python-pil python-lxml python-tk python3-matplotlib && \
     sudo pip install Cython contextlib2 jupyter
 
 RUN mkdir -p /tensorflow/models
