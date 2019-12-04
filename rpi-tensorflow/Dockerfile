@@ -72,6 +72,7 @@ RUN sudo apt-get install python3-numpy python-six build-essential cmake unzip pk
     wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.0.0.zip && \
     unzip opencv.zip && \
     unzip opencv_contrib.zip && \
+    ls . && \
     pip install numpy && \
     cd ./opencv && \
     mkdir ./build && \
@@ -103,3 +104,4 @@ EXPOSE 8888
 # https://www.tensorflow.org/install/pip
 # https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md
 # https://github.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi#4-compile-and-install-protobuf
+# https://circuitdigest.com/microcontroller-projects/how-to-install-python-opencv-on-raspberry-pi
