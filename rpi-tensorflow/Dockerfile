@@ -87,7 +87,7 @@ RUN sudo apt-get install python3-numpy python-six build-essential cmake unzip pk
         -D WITH_TBB=OFF \
         -D INSTALL_PYTHON_EXAMPLES=OFF \
         -D BUILD_EXAMPLES=OFF .. && \
-    Make –j4 && \
+    make –j4 && \
     sudo apt-get install libopencv-dev python-opencv && \
     sudo pip list
 
