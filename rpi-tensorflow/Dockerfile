@@ -75,6 +75,7 @@ RUN sudo apt-get install python3-numpy python-six build-essential cmake unzip pk
     ls . && \
     pip install numpy && \
     cd ./opencv && \
+    ls . && \
     mkdir ./build && \
     cd ./build && \
     cmake -D CMAKE_BUILD_TYPE=RELEASE \
