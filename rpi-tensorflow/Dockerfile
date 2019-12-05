@@ -68,6 +68,7 @@ RUN mkdir ./scripts
 COPY . ./scripts/
 # Install script specific python modules (e.g. opencv)
 RUN sudo apt-get install python3-numpy python-six python3-opencv libhdf5-dev libhdf5-serial-dev libatlas-base-dev libjasper-dev libqtgui4 libqt4-test && \
+    sudo pip install Pillow && \
     sudo pip list
 
 WORKDIR /secamdir
