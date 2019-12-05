@@ -60,7 +60,8 @@ WORKDIR /tensorflow/models/research
 RUN protoc object_detection/protos/*.proto --python_out=.
 
 # RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
-RUN echo "export PYTHONPATH=${PYTHONPATH}:`pwd`:`pwd`/slim" >> ~/.bashrc
+# RUN echo "export PYTHONPATH=${PYTHONPATH}:`pwd`:`pwd`/slim" >> ~/.bashrc
+RUN pwd
 
 WORKDIR /secamdir
 # Install secam python script
