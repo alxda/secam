@@ -53,13 +53,14 @@ RUN mkdir -p /tensorflow/models
 RUN git clone https://github.com/tensorflow/models.git /tensorflow/models
 
 # Install protobuf
-WORKDIR /tensorflow/models/research
+ENV TF_MODELS "/tensorflow/models/research"
+WORKDIR $TF_MODELS
 
 # RUN wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
 # RUN unzip protobuf.zip
 RUN protoc object_detection/protos/*.proto --python_out=.
 
-ENV PYTHONPATH "${PYTHONPATH}:${PWD}:${PWD}/slim"
+ENV PYTHONPATH "${PYTHONPATH}:${TF_MODELS}:${TF_MODELS}/slim"
 
 WORKDIR /secamdir
 # Install secam python script
