@@ -59,11 +59,7 @@ WORKDIR /tensorflow/models/research
 # RUN unzip protobuf.zip
 RUN protoc object_detection/protos/*.proto --python_out=.
 
-RUN printenv
-# RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
-ENV PYTHONPATH "${PYTHONPATH}:`pwd`:`pwd`/slim"
-RUN printenv
-# RUN echo "export PYTHONPATH=${PYTHONPATH}:`pwd`:`pwd`/slim" >> ~/.bashrc
+ENV PYTHONPATH "${PYTHONPATH}:${PWD}:${PWD}/slim"
 
 WORKDIR /secamdir
 # Install secam python script
