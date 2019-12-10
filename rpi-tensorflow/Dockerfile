@@ -60,7 +60,8 @@ WORKDIR /tensorflow/models/research
 RUN protoc object_detection/protos/*.proto --python_out=.
 
 RUN printenv
-RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
+# RUN export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
+ENV PYTHONPATH "${PYTHONPATH}:`pwd`:`pwd`/slim"
 RUN printenv
 # RUN echo "export PYTHONPATH=${PYTHONPATH}:`pwd`:`pwd`/slim" >> ~/.bashrc
 
