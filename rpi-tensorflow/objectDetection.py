@@ -1,7 +1,7 @@
 import numpy as np
 import os
 import six.moves.urllib as urllib
-import sys
+import sys, getopt
 import tarfile
 import tensorflow as tf
 import zipfile
@@ -13,6 +13,22 @@ from matplotlib import pyplot as plt
 from PIL import Image
 from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as vis_util
+
+dir = ''
+# Read command line argument
+try:
+    opts, args = getopt.getopt(argv,"hd:",["dir="])
+except getopt.GetoptError:
+    print 'objectDetection.py -d /path/to/tensorflow/model'
+    sys.exit(2)
+for opt, arg in opts:
+    if opt == '-h':
+        print 'objectDetection.py -d /path/to/tensorflow/model'
+        sys.exit()
+    elif opt in ("-d", "--dir"):
+        dir = arg
+       
+print 'Model directory is "', dir
 
 # Define the video stream
 cameraStream = cv2.VideoCapture(0)  # Change only if you have more than one webcams
@@ -27,7 +43,7 @@ DOWNLOAD_BASE = 'http://download.tensorflow.org/models/object_detection/'
 PATH_TO_CKPT = MODEL_NAME + '/frozen_inference_graph.pb'
 
 # List of the strings that is used to add correct label for each box.
-PATH_TO_LABELS = os.path.join('data', 'mscoco_label_map.pbtxt')
+PATH_TO_LABELS = os.path.join(dir, 'data', 'mscoco_label_map.pbtxt')
 
 # Number of classes to detect
 NUM_CLASSES = 90
