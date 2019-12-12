@@ -74,7 +74,7 @@ RUN sudo apt-get install python3-numpy python-six python3-opencv libhdf5-dev lib
 
 WORKDIR /secamdir
 RUN python3 -u ./scripts/checkDependencies.py && \
-    python3 -u ./scripts/objectDetection.py -d "${TF_MODELS}"
+    python3 -u ./scripts/objectDetection.py -d $TF_MODELS
 
 # TensorBoard
 EXPOSE 6006
