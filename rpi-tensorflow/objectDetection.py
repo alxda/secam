@@ -17,7 +17,7 @@ from object_detection.utils import visualization_utils as vis_util
 dir = ''
 # Read command line argument
 try:
-    opts, args = getopt.getopt(argv,"hd:",["dir="])
+    opts, args = getopt.getopt(sys.argv,"hd:",["help", "dir="])
 except getopt.GetoptError:
     print("objectDetection.py -d /path/to/tensorflow/model")
     sys.exit(2)
