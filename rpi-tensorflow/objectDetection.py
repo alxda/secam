@@ -19,16 +19,16 @@ dir = ''
 try:
     opts, args = getopt.getopt(argv,"hd:",["dir="])
 except getopt.GetoptError:
-    print 'objectDetection.py -d /path/to/tensorflow/model'
+    print("objectDetection.py -d /path/to/tensorflow/model")
     sys.exit(2)
 for opt, arg in opts:
     if opt == '-h':
-        print 'objectDetection.py -d /path/to/tensorflow/model'
+        print("objectDetection.py -d /path/to/tensorflow/model")
         sys.exit()
     elif opt in ("-d", "--dir"):
         dir = arg
        
-print 'Model directory is "', dir
+print("Model directory is ", dir)
 
 # Define the video stream
 cameraStream = cv2.VideoCapture(0)  # Change only if you have more than one webcams
